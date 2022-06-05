@@ -1,0 +1,9 @@
+图书模块
+涉及表:book,book_lend,student
+
+1.student-[借阅]->book
+学生借阅图书,通过book_lend表来链接
+2.student-[归还/未归还/预期未归还]->book
+book_lend中有remain_time属性,用来记录归还时间,通过判断该字段是否为null来确定是否归还
+如果为null,则判断当前日期距离归还日期只有一周时,提示未归还.借阅时间默认为一个月.
+如果为null,且超出借阅时间时,建立逾期未归还关系

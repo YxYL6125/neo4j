@@ -1,0 +1,8 @@
+寝室模块
+涉及表：dormitory,student,electricity_cost
+
+1.（宿舍关系）student-[宿舍]->dormitory
+通过student的dormitoryId来指定dormitory
+2.(缴纳电费)dormitory-[未缴纳电费:{费用:xxx}]->electricity_cost
+电费以寝室为单位，每个月免费用电30度，通过(electricity_end-electricity_start)来计算用电量
+如果用电量>=30则创建该关系，并通过electricity_cost的price(单价)属性算出费用

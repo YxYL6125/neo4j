@@ -1,0 +1,17 @@
+目录：
+eneity：数据库对应的实体类
+mapper：操作数据库的接口，因为查询语句较为简单，未配置xxxMapper.xml，只是通过@Select注解直接在方法上写sql语句
+repository：是涉及neo4j数据库的操作
+           node:创建数据库中部分表的数据信息作为节点，将mysql里面的一条数据创建为一个节点存储
+           relatinship:创建各节点之间的关系，其中分为CreateRelation（这是创建总览的关系），
+                        CreateStudentRelation(创建某个student的相关信息，会根据一些筛选来实现智能效果)
+                        CreateTeacherRelation(创建某个teacher的相关信息，会根据一些筛选来实现智能效果)
+                        CreateGraduationDesignTeacherRelation
+                        (创建毕业设计老师的相关信息，实则可以和teacher并类，为了看起来清晰将它分离出来了)
+           上面的后三个接口，实则都是在第一个总接口的方法里面进行分割。
+
+service：这一层是服务层，主要是实现上述的关系连接
+        CreateAllNodeService:创建所有节点的信息，每一个repository.node的实体都会在这里被创建
+        CreateAllRelationShipService：创建所有节点应包含的关系，下面的分支实则也是从这个总的服务里面抽取部分服务组成一个类
+        GetNodeService:这个类是为了更方便的获取mysql里面的数据，因为存在很多mapper，如果每个类用到都去声明太麻烦，
+        索性用一个类来专门做数据获取的服务，新增的mapper只需要多添加一个属性和方法就行了，调用只需要通过这个类的方法就能获取。

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--mapper目录下的接口路径-->
+<mapper namespace="com.liyao.neo4j.mapper.TotalMapper">
+    <resultMap id="TotalResultMap" type="com.liyao.neo4j.eneity.Total">
+
+    </resultMap>
+    <select id="selectAll" resultType="com.liyao.neo4j.eneity.Total">
+        select s.student_name, s.student_age, t.teacher_name, t.teacher_telephone, c.course_name
+        from student s,
+             teacher t,
+             course c
+        where s.student_id = c.student_id
+          and c.teacher_id = t.teacher_id
+
+    </select>
+    <!--    foreach元素的属性主要有item，index，collection，open，separator，close。-->
+    <!--    item：集合中元素迭代时的别名，该参数为必选。-->
+    <!--    index：在list和数组中,index是元素的序号，在map中，index是元素的key，该参数可选-->
+    <!--    open：foreach代码的开始符号，一般是(和close=")"合用。常用在in(),values()时。该参数可选-->
+    <!--    separator：元素之间的分隔符，例如在in()的时候，separator=","会自动在元素中间用“,“隔开，避免手动输入逗号导致sql错误，如in(1,2,)这样。该参数可选。-->
+    <!--    close: foreach代码的关闭符号，一般是)和open="("合用。常用在in(),values()时。该参数可选。-->
+    <insert id="insertList" parameterType="java.util.List">
+        insert into total(student_name,student_age,teacher_name,teacher_telephone,course_name)
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+        (
+            #{item.studentName},
+            #{item.studentAge},
+            #{item.teacherName},
+            #{item.teacherTelephone},
+            #{item.courseName}
+         )
+        </foreach>
+    </insert>
+</mapper>

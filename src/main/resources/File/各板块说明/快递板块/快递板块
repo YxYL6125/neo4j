@@ -1,0 +1,11 @@
+快递板块
+涉及表:courier,courier_connection,deliveryman
+
+courier_connection主要用来连接courier和deliveryman，创建两者之间的配送关系
+创建courier节点的时候,因为其中的take_time有可能会空(取走时间),所以创建节点的时候不创建这个属性
+在总的关系当中，通过courier中的buyerId和identity_code来关联student或者teacher中的快递关系。
+
+在student个人的板块里在此基础上细分了，快递状态，是否签收
+其他实现和上述说明基本一致，签收的实现是通过先获取courier中和该student_id相关的快递(即找到该学生的快递)
+再在获取的快递数据中,判断take_time是否为空来判断是否被取走(为空则未取走)并创建对应关系
+teacher的个人版块和student基本类似

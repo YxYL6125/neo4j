@@ -1,0 +1,8 @@
+作业模块
+涉及表:homework,homework_finish,student,teacher
+
+1.(课程作业)teacher-[布置作业]->homework
+通过homework中的course_id,以及建立的关系teacher-(课程老师)->course来链接 teacher和homework
+2.(作业完成情况)student-[已提交/未提交/未完成]->homework
+老师布置作业后,学生需按时提交(homework有一个end_time来判断学生是否按时提交)
+通过homework_finish的status来判断是否完成然后创建对应关系

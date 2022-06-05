@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+        <form action="/student/updateStudent" method="post">
+            姓名：<input type="text" name="studentName" th:value="${student.getStudentName()}"><br>
+            年龄：<input type="text" name="age" th:value="${student.getAge()}"><br>
+            一卡通卡号：<input type="text" name="cardNumber" th:value="${student.getCardNumber()}"><br>
+            性别：<input type="text" name="sex" th:value="${student.getSex()}"><br>
+            专业：<input type="text" name="speciality" th:value="${student.getSpeciality()}"><br>
+            学院：<input type="text" name="college" th:value="${student.getCollege()}"><br>
+            宿舍：<input type="text" name="dormitoryId" th:value="${student.getDormitoryId()}"><br>
+            <button type="submit">提交</button>
+            <button><a href="/StudentDisplay.html"></a>返回</button>
+
+        </form>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--mapper目录下的接口路径-->
+<mapper namespace="com.liyao.neo4j.mapper.StudentMapper">
+
+    <select id="getStudent" resultType="com.liyao.neo4j.eneity.Student" >
+            select * from  student
+    </select>
+
+</mapper>

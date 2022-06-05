@@ -1,0 +1,8 @@
+课程板块
+涉及表：course，student，teacher，score，course_connection,
+      homework,homework_finish
+主要包含以下关系：
+1.(课程表) student-[课程]->course
+通过score表作为连接表来链接student和course
+2.teacher-[课程老师]->course
+通过teacher_connection来链接teacher和course的关系

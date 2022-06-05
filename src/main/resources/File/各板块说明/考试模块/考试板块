@@ -1,0 +1,11 @@
+考试板块
+涉及表：examination，score，student，course
+
+当考试时间离现在还有2周的时候创建关系
+1.(考试提示) student-[考试信息]->examination
+examination节点在创建进neo4j中做了筛选，获取了startTime来判断，开始时间距现在2周以内才创建
+
+2.(课程考试成绩)student-[及格/不及格]->course
+score节点在创建进neo4j时做了筛选，只有当course_score不为空时才会被创建进去。
+除此之外score因为表中所包含course_id和student_id，所以常用来当student和course的连接表
+创建关系的时候会根据score节点的分数字段来判断及格或者不及格

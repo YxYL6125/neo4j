@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--mapper目录下的接口路径-->
+<mapper namespace="com.liyao.neo4j.mapper.TotalMessageMapper">
+    <resultMap id="TotalMessageMap" type="com.liyao.neo4j.eneity.TotalMessage">
+
+    </resultMap>
+    <select id="getTotalMessage" resultMap="TotalMessageMap">
+        SELECT student_name,sex,speciality,card_number,age,college,
+               bulid_name,floor,room,
+               course.course_name,course.course_classroom
+                ,course_score,
+               examination_classroom,examination.start_time,examination.end_time,
+               teacher_name,teacher_telephone,
+               `subject`,graduation_design_teacher_name,graduation_design_teacher_telephone,book_name,book_author,publish_year
+
+
+        FROM student,dormitory,score,course,examination,course_connection,teacher,graduation_design,graduation_design_teacher,book,booklend
+        WHERE student.dormitory_id=dormitory.id
+          and score.student_id=student.id
+          and score.course_id=course.id=examination.course_id
+          and course_connection.course_id=course.id
+          and course_connection.teacher_id=teacher.id
+          and student.id=graduation_design.student_id
+          and graduation_design.graduation_design_teacher_id=graduation_design_teacher.id
+          and student.id=booklend.student_id
+          and book.id=booklend.book_id
+
+    </select>
+
+</mapper>

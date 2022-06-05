@@ -1,0 +1,14 @@
+毕业设计模块
+涉及表:student,graduation_design,graduation_design_teacher,graduation_design_chect,graduation_connection
+
+gd:graduation_design
+gd_connection表用来链接,student,gd_teacher,gd
+
+1.student-[指导老师]->graduation_teacher
+通过gd_Connection表
+2.student-[提交/未提交]->毕业设计
+通过gd_Connection表获取到gd表中的数据,判断各属性字段是否为1(默认为1,代表没提交)
+3.gd_teacher-[审批]->毕业设计
+  2建立关系为"提交"的同时,同时建立了3
+4.gd_teacher-[通过/未通过]->毕业设计
+通过gd_chect表里的xx_result属性来判断,等于0则表示未通过,非0为通过.

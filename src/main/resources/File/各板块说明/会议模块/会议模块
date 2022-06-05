@@ -1,0 +1,7 @@
+会议模块
+涉及表：teacher,meeting,meeting_connection
+
+
+1.(开会)teacher-[会议]->meeting
+在总的关系建立中，采取的是通过meeting_connection来链接teacher和meeting，未加任何判断逻辑
+在建立单个teacher的关系中，将会议细化了，通过meeting的meeting_time来判断日期是否是今天，如果是则创建关系

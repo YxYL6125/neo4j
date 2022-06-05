@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>老师信息界面</title>
+</head>
+<body>
+<form>
+    <table>
+        <tr>
+            <th>id</th>
+            <th>教师名称</th>
+            <th>教师电话</th>
+            <th colspan="2">操作</th>
+        </tr>
+        <tr>
+        <tr th:each="teacher:${teachers}">
+            <td th:text="${teacher.getId()}"></td>
+            <td th:text="${teacher.getTeacherName()}"></td>
+            <td th:text="${teacher.getTeacherTelephone()}"></td>
+            <td><button><a th:href="@{'/teacher/update/'+${teacher.getId()}}">修改信息</a></button> </td>
+            <td><a th:href="@{'/teacher/display/'+${teacher.getId()}}">视图展示</a></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
