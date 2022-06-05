@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>老师信息界面</title>
+    <link rel="stylesheet" href="/css/Display.css">
 </head>
 <body>
 <form>
@@ -19,8 +20,8 @@
             <td th:text="${teacher.getId()}"></td>
             <td th:text="${teacher.getTeacherName()}"></td>
             <td th:text="${teacher.getTeacherTelephone()}"></td>
-            <td><button><a th:href="@{'/teacher/update/'+${teacher.getId()}}">修改信息</a></button> </td>
-            <td><a th:href="@{'/teacher/display/'+${teacher.getId()}}">视图展示</a></td>
+            <td><button><a th:href="@{'/teacher/update/'+${teacher.getId()}}">修改信息</a></button> <a th:href="@{'/teacher/display/'+${teacher.getId()}}">视图展示</a></td>
+            
         </tr>
     </table>
 </form>

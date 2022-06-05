@@ -3,36 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>学生信息界面</title>
+    <link rel="stylesheet" href="/css/Display.css">
 </head>
 <body>
-<form>
-    <table>
-        <tr>
-            <th>id</th>
-            <th>姓名</th>
-            <th>一卡通卡号</th>
-            <th>性别</th>
-            <th>专业</th>
-            <th>学院</th>
-            <th>宿舍</th>
-            <th colspan="2">操作</th>
-        </tr>
-        <tr>
-        <tr th:each="student:${students}">
-            <td th:text="${student.getId()}"></td>
-            <td th:text="${student.getStudentName()}"></td>
-            <td th:text="${student.getCardNumber()}"></td>
-            <td th:text="${student.getSex()}"></td>
-            <td th:text="${student.getSpeciality()}"></td>
-            <td th:text="${student.getCollege()}"></td>
-            <td th:text="${student.getDormitoryId()}"></td>
-            <td>
-                <button><a th:href="@{'/student/update/'+${student.getId()}}">修改信息</a></button>
-            </td>
-            <td><a th:href="@{'/student/display/'+${student.getId()}}">视图展示</a></td>
-        </tr>
-    </table>
-</form>
-<span th:text="${msg}"></span>
+       <form>
+          <table>
+              <tr>
+                  <th>id</th>
+                  <th>姓名</th>
+                  <th>一卡通卡号</th>
+                  <th>性别</th>
+                  <th>专业</th>
+                  <th>学院</th>
+                  <th>宿舍</th>
+                  <th colspan="2">操作</th>
+              </tr>
+              <tr>
+              <tr th:each="student:${students}">
+                  <td th:text="${student.getId()}"></td>
+                  <td th:text="${student.getStudentName()}"></td>
+                  <td th:text="${student.getCardNumber()}"></td>
+                  <td th:text="${student.getSex()}"></td>
+                  <td th:text="${student.getSpeciality()}"></td>
+                  <td th:text="${student.getCollege()}"></td>
+                  <td th:text="${student.getDormitoryId()}"></td>
+                  <td><button><a th:href="@{'/student/update/'+${student.getId()}}">修改信息</a></button> <a th:href="@{'/student/display/'+${student.getId()}}">视图展示</a></td>
+                  <!-- <td><a th:href="@{'/student/display/'+${student.getId()}}">视图展示</a></td> -->
+              </tr>
+          </table>
+       </form>
 </body>
 </html>
