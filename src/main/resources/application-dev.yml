@@ -1,0 +1,36 @@
+spring:
+  datasource:
+    username: root
+    password: 6125
+    url: jdbc:mysql://localhost:3306/neo4j
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  spring:
+    thymeleaf:
+      prefix: classpath:/templates
+      suffix: .html
+      cache: false
+    resources:
+      static-locations: classpath:/resources/
+      classpath: /templates/static/
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  data:
+    neo4j:
+      uri: bolt://localhost:7687
+      username: neo4j
+      password: yc6125
+server:
+  port: 8083
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+logging:
+  level:
+    org:
+      springframework:
+        boot:
+          autoconfigure: error

@@ -21,6 +21,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import java.awt.event.MouseAdapter;
 import java.util.List;
+import java.util.logging.Logger;
 
 @Controller
 public class StudentController {
@@ -34,6 +35,7 @@ public class StudentController {
     StudentMapper studentMapper;
     @Autowired
     StudentService studentService;
+
 
     /**
      * 跳转学生界面
